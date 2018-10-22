@@ -1,6 +1,12 @@
 	@ Factorial
 	@ Put the required header information here
-
+	@Anthony De La Cruz
+	@PA4-2
+	@10/22/2018
+	@ this program compute n!
+	@R0 contains N, R2 is 1
+	@
+	@
 	.extern printf
 	.extern scanf
 	.global main
@@ -16,9 +22,15 @@ main:	PUSH	{LR}
 	@-------------
 	@ Your code goes here.  Put n! in R2
 	@-------------
+	MOV R2, #1 @ move 1 into R2
+	
 
+loop:
 
-
+	CMP R0, #1 	  @ compare R0 to 1
+	MULGE R2, R2, R0  @ multiply R2 and R0 if greater or equal and put it into R2
+	SUBGE R0, R0, #1  @ substract 1 to R0 if greater or equal to and make the program go decreasing
+	BGE loop	  @ makes the loop go again if grater or equal to
 
 	@-------------
 	@ Do NOT alter code past this line.
